@@ -52,6 +52,10 @@ h2 {
   text-transform: uppercase;
 }
 
+.menu__btn {
+  display: none;
+}
+
 .menu__list {
   display: flex;
   flex-direction: row;
@@ -123,15 +127,6 @@ h2 {
   width: 1440px;
   position: relative;
   height: 1650px;
-}
-
-.ux-mobile,
-.motion-mobile,
-.photo-mobile,
-.product-mobile,
-.digital-mobile,
-.reel-mobile {
-  display: hidden;
 }
 
 .ux {
@@ -244,22 +239,20 @@ h2 {
 /* Адаптив для мобильной версии сайта
  */
 
-@media (max-width: 414px) {
+@media (max-width: 375px) {
   html,
   body {
     margin: 0 auto;
   }
 
   .container {
-    max-width: 360px;
+    max-width: 375px;
     margin: 0 auto;
   }
 
   .section {
     min-height: 100vh;
     min-width: 375px;
-    /*     padding: 5px 5px 5px;
- */
   }
 
   .about__heading {
@@ -273,14 +266,29 @@ h2 {
   }
 
   .header__top {
-    height: 100px;
+    width: 375px;
+    height: 60px;
     padding-top: 22px;
   }
 
   .header__top-inner {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__top-inner.header__top-inner--active .menu__list {
+    transform: translateY(0%);
+  }
+
+  .header__top-inner.header__top-inner--active .menu__btn path {
+    fill: white;
+  }
+
+  .header__top-inner.header__top-inner--active .logo__link {
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(63, 55, 55);
   }
 
   .logo__link {
@@ -289,10 +297,57 @@ h2 {
     letter-spacing: 0.68em;
     color: #000000;
     text-transform: uppercase;
+    padding-left: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .menu {
+    height: 18px;
+    padding-right: 30px;
+  }
+
+  .menu__btn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .menu__list {
+    display: block;
+    width: 375px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /*     top: 90px; */
+    top: 0;
+    background-color: rgb(209, 65, 149);
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 15px 0;
+    transform: translateY(-200%);
+    transition: all 0.5s;
+  }
+
+  .menu__list-item {
+    padding-left: 0;
+  }
+
+  ul.menu__list {
+    padding: 90px 0 15px;
   }
 
   .menu__list-item a {
-    display: none;
+    padding-left: 0;
+    display: block;
+    padding: 15px 15px;
+    align-items: center;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(63, 55, 55);
   }
 
   .header__content-image {
@@ -303,6 +358,7 @@ h2 {
 
   .header__content-image-mobile {
     display: flex;
+    padding-top: 10px;
   }
 
   .header__content-image img {
@@ -317,6 +373,7 @@ h2 {
 
   .My__vision {
     padding-left: 30px;
+    width: 304px;
   }
 
   .My__history {
@@ -333,76 +390,63 @@ h2 {
   .My__vision-text {
     width: 304px;
     font-style: 16px;
-    margin: 0;
+    height: 510px;
   }
 
-  .ux,
-  .motion,
-  .photo,
-  .product,
-  .digital,
-  .reel {
-    display: none;
-  }
-
-  .portfolio {
-    display: none;
-  }
-
-  .portfolio-mobile {
-    padding-top: 143px;
-    padding-bottom: 185px;
-  }
-
-  .portfolio__inner-mobile {
-    width: 304px;
+  .portfolio__inner {
+    width: 375px;
     position: relative;
     height: 547px;
   }
 
-  .ux-mobile {
+  .ux {
     left: 0;
     right: 184px;
     position: absolute;
+    width: 188px;
   }
 
-  .motion-mobile {
+  .motion {
     position: absolute;
     top: 30px;
     right: 0px;
     left: 228px;
+    width: 145px;
   }
 
-  .photo-mobile {
+  .photo {
     position: absolute;
     top: 303px;
     left: 0;
+    width: 117px;
   }
 
-  .product-mobile {
+  .product {
     position: absolute;
     top: 263px;
     left: 128px;
     right: 134px;
+    width: 140px;
   }
 
-  .digital-mobile {
+  .digital {
     position: absolute;
     top: 293px;
-    right: px;
     left: 273px;
+    width: 115px;
   }
 
-  .reel-mobile {
+  .reel {
     position: absolute;
     top: 445px;
     left: 149px;
     right: 100px;
+    width: 129px;
   }
 
   .my__services {
     padding-bottom: 183px;
-    width: 360px;
+    width: 375px;
   }
 
   .my__services-inner {
@@ -411,17 +455,13 @@ h2 {
   }
 
   .service-image {
-    display: none;
-  }
-
-  .service-image-mobile {
-    display: flex;
-    background-position: center;
-    padding-left: 0;
+    width: 375px;
+    text-align: center;
+    left: 0;
   }
 
   .my__services-inner {
-    width: 360px;
+    width: 375px;
     padding-left: 30px;
   }
 
@@ -468,7 +508,7 @@ h2 {
     font-family: "Antonio", sans-serif;
     font-size: 20px;
     line-height: 32px;
-    width: 360px;
+    width: 375px;
     letter-spacing: 0.68em;
     color: #ffffff;
     text-transform: uppercase;
@@ -481,11 +521,7 @@ h2 {
     justify-content: center;
     text-align: space-around;
     padding: 0;
-    width: 360px;
-  }
-
-  li:nth-child(1) > a {
-    padding-left: 0;
+    width: 375px;
   }
 
   .menu__list-item-footer a {
